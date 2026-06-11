@@ -1,0 +1,16 @@
+# GPU override for Linux + NVIDIA.
+# Usage:
+#   docker compose -f docker-compose.yml -f docker-compose.gpu.yml up -d
+#
+# Replaces the CPU docling-serve image with the CUDA 13.0 variant and
+# exposes all GPUs to the container via the nvidia runtime.
+# For older GPUs (CUDA 12.1) change the image tag to:
+#   ghcr.io/docling-project/docling-serve-cu121:main
+# Available tags: https://github.com/orgs/docling-project/packages?repo_name=docling-serve
+
+services:
+  docling:
+    image: ghcr.io/docling-project/docling-serve-cu130:main
+    runtime: nvidia
+    environment:
+      NVIDIA_VISIBLE_DEVICES: all

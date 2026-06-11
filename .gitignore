@@ -18,6 +18,7 @@ venv/
 # Generated Docker Compose files (output of setup wizard)
 docker-compose.*.yml
 !docker-compose.podman.yml
+!docker-compose.gpu.yml
 
 # Build / Distribution
 dist/

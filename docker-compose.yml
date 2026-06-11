@@ -1,4 +1,10 @@
 services:
+  docling:
+    image: ghcr.io/docling-project/docling-serve:main
+    ports:
+      - "5001:5001"
+    restart: unless-stopped
+
   lightrag:
     image: ghcr.io/hkuds/lightrag:latest
     build:
